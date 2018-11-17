@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.nautanki.loginregapp">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -18,7 +19,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.nautanki.loginregapp.MainActivity" />
         <activity android:name="com.nautanki.loginregapp.Register" />
         <activity android:name="com.nautanki.loginregapp.LoginSuccess" />
@@ -32,7 +34,7 @@
         <activity android:name="com.nautanki.loginregapp.ScannedBarcodeActivty" />
         <activity android:name="com.nautanki.loginregapp.UserLoginPage" />
         <activity android:name="com.nautanki.loginregapp.Choose" />
-        <activity android:name="com.nautanki.loginregapp.IssuePage"></activity>
+        <activity android:name="com.nautanki.loginregapp.IssuePage"> </activity>
     </application>
 
 </manifest>
