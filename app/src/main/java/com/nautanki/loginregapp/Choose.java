@@ -16,7 +16,7 @@ public class Choose extends AppCompatActivity {
         getSupportActionBar().hide();
         ms=findViewById(R.id.wlcmsg);
         User user=new User(Choose.this);
-        ms.setText("Welcome :"+user.getName());
+        ms.setText("Welcome  :"+user.getName());
 
     }
 
