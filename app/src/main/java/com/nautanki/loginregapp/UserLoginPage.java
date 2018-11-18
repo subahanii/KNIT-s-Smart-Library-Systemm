@@ -1,10 +1,12 @@
 package com.nautanki.loginregapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class UserLoginPage extends AppCompatActivity {
     private static WebView browser;
@@ -34,5 +36,10 @@ public class UserLoginPage extends AppCompatActivity {
         else {
             super.onBackPressed();
         }
+    }
+
+    public void manage(View view) {
+        Toast.makeText(this, "Loding...", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this,ManageTemp.class));
     }
 }

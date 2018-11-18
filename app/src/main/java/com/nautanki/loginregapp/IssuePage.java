@@ -1,15 +1,33 @@
 package com.nautanki.loginregapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class IssuePage extends AppCompatActivity implements View.OnClickListener {
-    EditText stdid,bkid1,bkid2,bkid3,bkid4;
-    Button btn_stdid,btn_bkid1,btn_bkid2,btn_bkid3,btn_bkid4;
+    EditText stdid,bkid1;
+    Button btn_stdid,btn_bkid1,btn_bkid2;
+    AlertDialog.Builder builder;
+    String reg_url = "https://untruthful-oscillat.000webhostapp.com/issue.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,18 +36,12 @@ public class IssuePage extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_issue_page);
         stdid= findViewById(R.id.txt_issue_std_id);
         bkid1=findViewById(R.id.txt_issue_bkid1);
-        bkid2=findViewById(R.id.txt_issue_bkid2);
-        bkid3=findViewById(R.id.txt_issue_bkid3);
-        bkid4=findViewById(R.id.txt_issue_bkid4);
 
         initViews();
 
         User user=new User(IssuePage.this);
         stdid.setText(user.getStudentId().toString());
         bkid1.setText(user.getBookId1().toString());
-        bkid2.setText(user.getBookId2().toString());
-        bkid3.setText(user.getBookId3().toString());
-        bkid4.setText(user.getBookId4().toString());
 
 
     }
@@ -38,16 +50,11 @@ public class IssuePage extends AppCompatActivity implements View.OnClickListener
         btn_stdid=findViewById(R.id.btn_issue_std_id);
         btn_bkid1=findViewById(R.id.btn_issue_bkid1);
         btn_bkid2=findViewById(R.id.btn_issue_bkid2);
-        btn_bkid3=findViewById(R.id.btn_issue_bkid3);
-        btn_bkid4=findViewById(R.id.btn_issue_bkid4);
 
-        // btnScanBarcode = findViewById(R.id.btnScanBarcode);
         btn_stdid.setOnClickListener(this);
         btn_bkid1.setOnClickListener( this);
         btn_bkid2.setOnClickListener( this);
-        btn_bkid3.setOnClickListener( this);
-        btn_bkid4.setOnClickListener( this);
-        //  btnScanBarcode.setOnClickListener(this);
+
     }
 
     public void onClick(View v) {
@@ -65,18 +72,7 @@ public class IssuePage extends AppCompatActivity implements View.OnClickListener
                 startActivity(intent2);
                 finish();
                 break;
-            case R.id.btn_issue_bkid3:
-                Intent intent3=new Intent(this,ScannedBarcodeActivty.class);
-                intent3.putExtra("btnvalue","issue_book3");
-                startActivity(intent3);
-                finish();
-                break;
-            case R.id.btn_issue_bkid4:
-                Intent intent4=new Intent(this,ScannedBarcodeActivty.class);
-                intent4.putExtra("btnvalue","issue_book4");
-                startActivity(intent4);
-                finish();
-                break;
+
             case R.id.btn_issue_std_id:
                 Intent i=new Intent(this,ScannedBarcodeActivty.class);
                 i.putExtra("btnvalue","issue_student");
@@ -97,5 +93,90 @@ public class IssuePage extends AppCompatActivity implements View.OnClickListener
         user.setBookId4("");
         startActivity(new Intent(this,IssuePage.class));
         finish();
+    }
+
+    public void issue_btn(View view) {
+
+        final String bookid = bkid1.getText().toString();
+        final String studid = stdid.getText().toString();
+        builder = new AlertDialog.Builder(IssuePage.this);
+
+        if (bookid.equals("")||studid.equals("") ){
+            builder.setTitle("Error");
+            builder.setMessage("Please fill up all the fields.");
+            displayAlert("input_error");
+        } else{
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                        reg_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //Handle response.
+                        try {
+                            Toast.makeText(IssuePage.this, "onresponse", Toast.LENGTH_SHORT).show();
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0); //0=Index
+                            //Fetch data from server
+                            String code = jsonObject.getString("code");
+                            String message = jsonObject.getString("message");
+                            builder.setTitle("Server response");
+                            builder.setMessage(message);
+                            displayAlert(code); //Method we defined.
+                        } catch (JSONException e) {
+                           // tw.setText("From Exception Error!");
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(IssuePage.this, "on_error_response", Toast.LENGTH_SHORT).show();
+                    }
+                }){
+                    //Override a method called get params to pass data.
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params = new HashMap<String, String>();
+                        //The keys must match the keys on $_POST on SSS.
+
+                        params.put("sid",studid);
+                        params.put("bid",bookid);
+
+                        return params; //Return the MAP.
+                    }
+                };
+                //Add this string request to request queue.
+                MySingleton.getInstance(IssuePage.this).addToRequestque(stringRequest);
+            //}
+        }
+
+    }
+
+
+
+
+    public void displayAlert(final String code){
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (code.equals("succ_issue")){
+                    finish(); //Finish activity
+                }
+                else if(code.equals("stdid_wrong"))
+                {
+                    stdid.setText("");
+
+                }
+                else if(code.equals("bkid_wrong"))
+                {
+                    bkid1.setText("");
+                }
+
+            }
+        });
+        //Display the alert dialog.
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

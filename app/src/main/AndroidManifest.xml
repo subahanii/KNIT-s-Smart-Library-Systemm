@@ -21,20 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.nautanki.loginregapp.MainActivity" />
-        <activity android:name="com.nautanki.loginregapp.Register" />
-        <activity android:name="com.nautanki.loginregapp.LoginSuccess" />
-        <activity android:name="com.nautanki.loginregapp.SplashActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Register" />
+        <activity android:name=".LoginSuccess" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.nautanki.loginregapp.ScannedBarcodeActivty" />
-        <activity android:name="com.nautanki.loginregapp.UserLoginPage" />
-        <activity android:name="com.nautanki.loginregapp.Choose" />
-        <activity android:name="com.nautanki.loginregapp.IssuePage"> </activity>
+        <activity android:name=".ScannedBarcodeActivty" />
+        <activity android:name=".UserLoginPage" />
+        <activity android:name=".Choose" />
+        <activity android:name=".IssuePage"></activity>
+        <activity android:name=".ManageTemp"></activity>
     </application>
 
 </manifest>
