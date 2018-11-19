@@ -149,7 +149,7 @@ public class ScannedBarcodeActivty extends AppCompatActivity {
                                 User user=new User(ScannedBarcodeActivty.this);
                                 user.setBookId1(intentData);}
 
-                            if(btntype.equals("issue_book2")){
+                            if(btntype.equals("return_book2")){
 
                                 txtBarcodeValue.setText(intentData);
                                 User user=new User(ScannedBarcodeActivty.this);
@@ -166,6 +166,7 @@ public class ScannedBarcodeActivty extends AppCompatActivity {
                                 txtBarcodeValue.setText(intentData);
                                 User user=new User(ScannedBarcodeActivty.this);
                                 user.setBookId4(intentData);}
+
 
 
                             if(btntype.equals("issue_student")) {
