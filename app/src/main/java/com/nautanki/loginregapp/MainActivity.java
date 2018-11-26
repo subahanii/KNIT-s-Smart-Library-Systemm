@@ -182,7 +182,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void return_btn(View view) {
 
-    }
 }
