@@ -1,5 +1,5 @@
 # KNIT-s-Smart-Library-System
-[Download APK File](https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/app-debug.apk?raw=true)
+[Download APK File](https://github.com/subahanii/androidSLMS/raw/master/app-debug.apk)
 <img src="https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/tf.gif" height="300" width="300" />
 
 
