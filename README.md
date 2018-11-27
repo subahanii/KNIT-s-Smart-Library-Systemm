@@ -1,7 +1,11 @@
 # KNIT-s-Smart-Library-System
+[Download APK File](https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/app-debug.apk?raw=true)
+<img src="https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/tf.gif" height="300" width="300" />
+
+
 ## INTRODUCTION:
 Project entitled Smart Library Management System as part of our 5th
-semester.
+semester Aug-2018.
 ## Objective:
 Library Management System is a Mobile application software to maintain record related to books stock maintenance , issue , returns , search , fines and all necessary
 requirements for library to manage day to day operations with smartphone.
