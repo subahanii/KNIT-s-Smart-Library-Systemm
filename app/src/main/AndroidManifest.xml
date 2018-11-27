@@ -34,8 +34,9 @@
         <activity android:name=".ScannedBarcodeActivty" />
         <activity android:name=".UserLoginPage" />
         <activity android:name=".Choose" />
-        <activity android:name=".IssuePage"></activity>
-        <activity android:name=".ManageTemp"></activity>
+        <activity android:name=".IssuePage" />
+        <activity android:name=".ManageTemp" />
+        <activity android:name=".SearchDetail"></activity>
     </application>
 
 </manifest>

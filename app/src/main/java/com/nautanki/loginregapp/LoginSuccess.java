@@ -30,7 +30,7 @@ public class LoginSuccess extends AppCompatActivity implements View.OnClickListe
     Button btnScanStdid,btnScanBkid,return_butn;
     EditText txtstdid,txtbkid;
     AlertDialog.Builder builder;
-    String ret_url = "https://untruthful-oscillat.000webhostapp.com/return.php";
+    String ret_url = "http://172.20.37.180/AndroidWeb/return.php";
 
 
     @Override
@@ -126,14 +126,12 @@ public class LoginSuccess extends AppCompatActivity implements View.OnClickListe
                 public void onResponse(String response) {
                     //Handle response.
                     try {
-                        Toast.makeText(LoginSuccess.this, "on_good_response", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(LoginSuccess.this, "onresponse bookid"+bookid+"stdid  "+studid, Toast.LENGTH_SHORT).show();
                         JSONArray jsonArray = new JSONArray(response);
                         JSONObject jsonObject = jsonArray.getJSONObject(0); //0=Index
                         //Fetch data from server
                         String code = jsonObject.getString("code");
                         String message = jsonObject.getString("message");
-
                         builder.setTitle("Server response");
                         builder.setMessage(message);
                         displayAlert(code); //Method we defined.
@@ -155,7 +153,7 @@ public class LoginSuccess extends AppCompatActivity implements View.OnClickListe
                     Map<String,String> params = new HashMap<String, String>();
                     //The keys must match the keys on $_POST on SSS.
 
-                    params.put("sd",studid);
+                    params.put("sid",studid);
                     params.put("bid",bookid);
 
                     return params; //Return the MAP.
