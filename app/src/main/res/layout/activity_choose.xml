@@ -13,11 +13,9 @@
         android:layout_width="211dp"
         android:layout_height="43dp"
         android:layout_marginTop="124dp"
-        android:layout_marginBottom="122dp"
         android:background="@drawable/bground"
         android:onClick="bookIssue"
         android:text="ISSUE"
-        app:layout_constraintBottom_toBottomOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,28 +37,13 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="214dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/bground"
-        android:text="HISTORY"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
-
-    <Button
         android:id="@+id/button7"
         android:layout_width="213dp"
         android:layout_height="53dp"
         android:layout_marginBottom="106dp"
         android:background="@drawable/bground"
-        android:text="FIND"
+        android:onClick="findStudHistory"
+        android:text="More Detail "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

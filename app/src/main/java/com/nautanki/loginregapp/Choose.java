@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Choose extends AppCompatActivity {
     TextView ms;
@@ -32,6 +33,13 @@ public class Choose extends AppCompatActivity {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void findStudHistory(View view) {
+        Toast.makeText(this, "Loading...", Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(this,SearchDetail.class);
+        //intent.putExtra("search_type", "student_history");
+        startActivity(intent);
     }
 }
 
