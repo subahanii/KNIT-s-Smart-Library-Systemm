@@ -1,5 +1,8 @@
 # KNIT-s-Smart-Library-System
-<img src="https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/tf.gif" height="400" width="300" />
+
+<img src="https://github.com/subahanii/KNIT-s-Smart-Library-Systemm/blob/master/tf.gif" height="300" width="300" />
+
+
 ## INTRODUCTION:
 Project entitled Smart Library Management System as part of our 5th
 semester.
