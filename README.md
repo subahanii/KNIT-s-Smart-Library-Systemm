@@ -5,7 +5,7 @@
 
 ## INTRODUCTION:
 Project entitled Smart Library Management System as part of our 5th
-semester.
+semester Aug-2018.
 ## Objective:
 Library Management System is a Mobile application software to maintain record related to books stock maintenance , issue , returns , search , fines and all necessary
 requirements for library to manage day to day operations with smartphone.
