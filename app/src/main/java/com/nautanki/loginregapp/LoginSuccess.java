@@ -30,7 +30,7 @@ public class LoginSuccess extends AppCompatActivity implements View.OnClickListe
     Button btnScanStdid,btnScanBkid,return_butn;
     EditText txtstdid,txtbkid;
     AlertDialog.Builder builder;
-    String ret_url = "http://172.20.37.180/AndroidWeb/return.php";
+    String ret_url = "https://untruthful-oscillat.000webhostapp.com/return.php";
 
 
     @Override

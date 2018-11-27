@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button b11;
     EditText UserName, Password;
     String username, password;
-    String login_url = "http://172.20.37.180/AndroidWeb/";
+    String login_url = "https://untruthful-oscillat.000webhostapp.com/  ";
     AlertDialog.Builder builder;
 
     @Override

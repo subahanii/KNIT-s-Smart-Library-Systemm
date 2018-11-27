@@ -27,7 +27,7 @@ public class IssuePage extends AppCompatActivity implements View.OnClickListener
     EditText stdid,bkid1;
     Button btn_stdid,btn_bkid1,btn_bkid2;
     AlertDialog.Builder builder;
-    String reg_url = "http://172.20.37.180/AndroidWeb/issue.php";
+    String reg_url = "https://untruthful-oscillat.000webhostapp.com/issue.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
